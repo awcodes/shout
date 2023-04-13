@@ -43,8 +43,6 @@ Shout::make('so-important')
 You will need to publish the config file and change `disable_css` to `true`. This will prevent the plugin from loading its default stylesheet.
 
 ```bash
-
-```bash
 php artisan vendor:publish --tag="shout-config"
 ```
 
