@@ -30,7 +30,7 @@
         <div class="flex">
             @if (! $isIconHidden)
                 <div @class([
-                    'flex-shrink-0 mr-3',
+                    'flex-shrink-0 ltr:mr-3 rtl:ml-3',
                     match($type) {
                         'success' => 'text-success-500',
                         'warning' => 'text-warning-500',
