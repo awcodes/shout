@@ -10,13 +10,16 @@
     :label-sr-only="$isLabelHidden()"
     :helper-text="$getHelperText()"
     :hint="$getHint()"
-    :hint-action="$getHintAction()"
+    :hint-actions="$getHintActions()"
     :hint-color="$getHintColor()"
     :hint-icon="$getHintIcon()"
     :state-path="$getStatePath()"
 >
     <div
         role="alert"
+        @if (! config('shout.disable_css'))
+        x-load-css="['{{ asset('css/awcodes/shout/plugin-shout-styles.css') }}']"
+        @endif
         {{ $attributes->merge($getExtraAttributes())->class([
             'shout-component border rounded-lg p-4',
             match($type) {

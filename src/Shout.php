@@ -17,7 +17,7 @@ class Shout extends Placeholder
     {
         parent::setUp();
 
-        $this->disableLabel();
+        $this->hiddenLabel();
     }
 
     public function disableIcon(bool|Closure $condition = true): static

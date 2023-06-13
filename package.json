@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/shout.css --postcss --watch",
         "build": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/shout.css --postcss --minify && npm run purge",
-        "purge": "filament-purge -i resources/dist/shout.css -o resources/dist/shout.css"
+        "purge": "filament-purge -i resources/dist/shout.css -o resources/dist/shout.css -v 3.x"
     },
     "devDependencies": {
         "@awcodes/filament-plugin-purge": "^1.0.2",

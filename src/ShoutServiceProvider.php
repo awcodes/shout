@@ -2,37 +2,29 @@
 
 namespace Awcodes\Shout;
 
-use Composer\InstalledVersions;
-use Filament\PluginServiceProvider;
-use OutOfBoundsException;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ShoutServiceProvider extends PluginServiceProvider
+class ShoutServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'shout';
 
-    public static string $version = 'dev';
-
     public function configurePackage(Package $package): void
     {
-        try {
-            static::$version = InstalledVersions::getPrettyVersion('awcodes/shout');
-        } catch (OutOfBoundsException $e) {
-        }
-
         $package->name(static::$name)
             ->hasConfigFile()
+            ->hasAssets()
             ->hasViews();
     }
 
-    public function getStyles(): array
+    public function packageRegistered(): void
     {
-        if (config('shout.disable_css')) {
-            return [];
+        if ($this->app->runningInConsole()) {
+            FilamentAsset::register([
+                Css::make('plugin-shout-styles', __DIR__ . '/../resources/dist/shout.css'),
+            ], 'awcodes/shout');
         }
-
-        return [
-            'plugin-'.static::$name.'-'.static::$version => __DIR__.'/../resources/dist/'.static::$name.'.css',
-        ];
     }
 }
