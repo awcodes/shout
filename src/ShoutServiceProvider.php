@@ -9,21 +9,20 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class ShoutServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'shout';
-
     public function configurePackage(Package $package): void
     {
-        $package->name(static::$name)
-            ->hasConfigFile()
+        $package->name('shout')
             ->hasAssets()
             ->hasViews();
     }
 
-    public function packageRegistered(): void
+    public function boot(): void
     {
-        if ($this->app->runningInConsole()) {
+        parent::boot();
+
+        if (app()->runningInConsole()) {
             FilamentAsset::register([
-                Css::make('plugin-shout-styles', __DIR__ . '/../resources/dist/shout.css'),
+                Css::make('shout', __DIR__ . '/../resources/dist/shout.css'),
             ], 'awcodes/shout');
         }
     }

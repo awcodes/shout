@@ -1,11 +1,9 @@
 # Shout
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/inline-notice.svg?style=flat-square)](https://packagist.org/packages/awcodes/inline-notice)
-[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/inline-notice.svg?style=flat-square)](https://packagist.org/packages/awcodes/inline-notice)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
 
 A simple inline contextual notice for Filament forms, basically just a fancy placeholder.
-
-![](./images/shout-dark.png)
 
 ## Installation
 
@@ -17,58 +15,26 @@ composer require awcodes/shout
 
 ## Usage
 
-```php
-use Awcodes\Shout\Shout;
+Shout is a wrapper around Filament's Placeholder component, so it will also work with the methods available to that component. Simply include the component in any of your form `schema()` methods.
 
-Shout::make('success')
+```php
+use Awcodes\Shout\Components\Shout;
+
+Shout::make('so-important')
     ->content('This is a test')
-    ->type('success|warning|danger|info') // defaults to info
-    ->columnSpan('full')
+    ->type('info|success|warning|danger')
 ```
-Shout is a wrapper around Filament's Placeholder component, so it will also work with the methods available to that component.
 
-You can also disable the icon, should you need to with the `disableIcon()` method.
+## Disabling the Icon
+
+Should you need to disable the icon, you can do so by calling the `disableIcon()` method.
+
 ```php
-use Awcodes\Shout\Shout;
+use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
     ->content('This is a test')
     ->disableIcon()
-    ->type('info')
-    ->columnSpan('full')
-```
-
-## Usage with Custom Filament Themes
-
-You will need to publish the config file and change `disable_css` to `true`. This will prevent the plugin from loading its default stylesheet.
-
-```bash
-php artisan vendor:publish --tag="shout-config"
-```
-
-Next you should add the views to your tailwind config file.
-
-```js
-content: [
-    ...
-    'vendor/awcodes/shout/resources/views/**/*.blade.php'
-]
-```
-
-Then rebuild your custom theme.
-
-## Views
-
-It is recommended that you DO NOT publish the views, but if you want to you can do so with the following command.
-
-```bash
-php artisan vendor:publish --tag="shout-views"
-```
-
-## Testing
-
-```bash
-composer test
 ```
 
 ## Changelog
