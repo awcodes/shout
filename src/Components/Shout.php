@@ -22,6 +22,7 @@ class Shout extends ViewField
         parent::setUp();
 
         $this->hiddenLabel();
+        $this->dehydrated(false);
         $this->type('info');
     }
 
