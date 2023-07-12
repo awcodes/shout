@@ -15,28 +15,76 @@ You can install the package via composer:
 composer require awcodes/shout
 ```
 
-## Usage
+## Usage in Forms
 
-Shout is a wrapper around Filament's Placeholder component, so it will also work with the methods available to that component. Simply include the component in any of your form `schema()` methods.
+Simply include the component in any of your form's `schema()` methods.
 
 ```php
 use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
+    ->content('This is a test')
+```
+
+## Usage in Infolists
+
+Simply include the component in any of your Infolist's `schema()` methods.
+
+```php
+use Awcodes\Shout\Components\ShoutEntry;
+
+ShoutEntry::make('so-important')
     ->content('This is a test')
     ->type('info|success|warning|danger')
 ```
 
-## Disabling the Icon
+## Custom Colors
 
-Should you need to disable the icon, you can do so by calling the `disableIcon()` method.
+You can use the `color()` method to set a custom color using Filament's Color Object.
+
+```php
+use Awcodes\Shout\Components\Shout;
+use Filament\Support\Colors\Color;
+
+Shout::make('so-important')
+    ->content('This is a test')
+    ->color(Color::Lime)
+
+Shout::make('so-important')
+    ->content('This is a test')
+    ->color(Color::hex('#badA55'))
+```
+
+## Icons
+
+### Changing the icon
 
 ```php
 use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
     ->content('This is a test')
-    ->disableIcon()
+    ->icon('heroicon-s-circle-check')
+```
+
+### Icon Size
+
+```php
+use Awcodes\Shout\Components\Shout;
+
+Shout::make('so-important')
+    ->content('This is a test')
+    ->iconSize('sm|md|lg|xl')
+```
+
+### Disabling the icon
+
+```php
+use Awcodes\Shout\Components\Shout;
+
+Shout::make('so-important')
+    ->content('This is a test')
+    ->icon(false)
 ```
 
 ## Changelog

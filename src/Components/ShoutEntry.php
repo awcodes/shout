@@ -5,19 +5,19 @@ namespace Awcodes\Shout\Components;
 use Awcodes\Shout\Components\Concerns\HasContent;
 use Awcodes\Shout\Components\Concerns\HasIcon;
 use Awcodes\Shout\Components\Concerns\HasType;
-use Filament\Forms\Components\ViewField;
+use Filament\Infolists\Components\Entry;
 use Filament\Support\Concerns\HasColor;
 
-class Shout extends ViewField
+class ShoutEntry extends Entry
 {
     use HasIcon;
-    use HasColor;
     use HasType;
     use HasContent;
+    use HasColor;
 
-    protected string $view = 'shout::components.shout-field';
+    protected string $view = 'shout::components.shout-entry';
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -45,7 +45,7 @@ class Shout extends ViewField
     {
         $icon = $this->evaluate($this->icon);
 
-        if (! $icon && $icon !== '') {
+        if (! $icon) {
             return match($this->getType()) {
                 'success' => 'heroicon-o-check-circle',
                 'warning' => 'heroicon-o-exclamation-triangle',
