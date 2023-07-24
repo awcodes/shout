@@ -22,7 +22,7 @@
 <div
     role="alert"
     x-data="{}"
-    x-load-css="['{{ asset('css/awcodes/shout/shout.css') }}']"
+    x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('shout', package: 'awcodes/shout'))]"
     {{ $attributes->merge($extraAttributes)->class([
         'shout-component border rounded-lg p-4 bg-custom-100 border-custom-300 text-custom-900 dark:border-custom-300 dark:bg-custom-100 dark:text-custom-900',
     ]) }}
@@ -33,9 +33,8 @@
             <div class="flex-shrink-0">
                 <x-filament::icon
                     alias="shout::icon.{{ $type }}"
-                    name="{{ $icon }}"
-                    size="{{ $iconSize }}"
-                    class="text-custom-600"
+                    icon="{{ $icon }}"
+                    class="{{ $iconSize }} text-custom-600"
                 />
             </div>
         @endif

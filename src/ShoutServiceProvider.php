@@ -20,10 +20,8 @@ class ShoutServiceProvider extends PackageServiceProvider
     {
         parent::boot();
 
-        if (app()->runningInConsole()) {
-            FilamentAsset::register([
-                Css::make('shout', __DIR__ . '/../resources/dist/shout.css'),
-            ], 'awcodes/shout');
-        }
+        FilamentAsset::register([
+            Css::make('shout', __DIR__ . '/../resources/dist/shout.css')->loadedOnRequest(),
+        ], 'awcodes/shout');
     }
 }
