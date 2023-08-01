@@ -31,7 +31,7 @@ class Shout extends ViewField
         $color = $this->evaluate($this->color);
 
         if (! $color) {
-            return match($this->getType()) {
+            return match ($this->getType()) {
                 'success' => 'success',
                 'warning' => 'warning',
                 'danger' => 'danger',
@@ -47,7 +47,7 @@ class Shout extends ViewField
         $icon = $this->evaluate($this->icon);
 
         if (! $icon && $icon !== '') {
-            return match($this->getType()) {
+            return match ($this->getType()) {
                 'success' => 'heroicon-o-check-circle',
                 'warning' => 'heroicon-o-exclamation-triangle',
                 'danger' => 'heroicon-o-x-circle',

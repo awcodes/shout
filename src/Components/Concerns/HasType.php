@@ -13,7 +13,7 @@ trait HasType
         return $this->evaluate($this->type);
     }
 
-    public function type(string|Closure $type): static
+    public function type(string | Closure $type): static
     {
         if (! in_array($type, ['info', 'success', 'warning', 'danger'])) {
             throw new \InvalidArgumentException("Invalid Shout type [{$type}].");

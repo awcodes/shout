@@ -30,7 +30,7 @@ class ShoutEntry extends Entry
         $color = $this->evaluate($this->color);
 
         if (! $color) {
-            return match($this->getType()) {
+            return match ($this->getType()) {
                 'success' => 'success',
                 'warning' => 'warning',
                 'danger' => 'danger',
@@ -46,7 +46,7 @@ class ShoutEntry extends Entry
         $icon = $this->evaluate($this->icon);
 
         if (! $icon) {
-            return match($this->getType()) {
+            return match ($this->getType()) {
                 'success' => 'heroicon-o-check-circle',
                 'warning' => 'heroicon-o-exclamation-triangle',
                 'danger' => 'heroicon-o-x-circle',
