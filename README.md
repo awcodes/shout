@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
 
-![shout-og](https://github.com/awcodes/shout/assets/3596800/824ecf78-0a0c-482c-8137-0ca48786869f)
+![shout-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/shout/awcodes-shout.jpg)
 
 A simple inline contextual notice for Filament forms, basically just a fancy placeholder.
 
