@@ -28,7 +28,7 @@
     ]) }}
     style="{{ $panelStyles }}"
 >
-    <div class="flex items-center gap-3 rtl:flex-row-reverse">
+    <div class="flex items-center gap-3">
         @if ($icon)
             <div class="flex-shrink-0">
                 <x-filament::icon
