@@ -6,19 +6,21 @@ use Closure;
 
 trait HasType
 {
-    protected string $type = 'info';
+    protected string | Closure | null $type = null;
 
     public function getType(): string
     {
-        return $this->evaluate($this->type);
-    }
+        $type = $this->evaluate($this->type) ?? 'info';
 
-    public function type(string | Closure $type): static
-    {
         if (! in_array($type, ['info', 'success', 'warning', 'danger'])) {
             throw new \InvalidArgumentException("Invalid Shout type [{$type}].");
         }
 
+        return $type;
+    }
+
+    public function type(string | Closure $type): static
+    {
         $this->type = $type;
 
         return $this;
