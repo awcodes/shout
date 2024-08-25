@@ -10,10 +10,10 @@ use Filament\Support\Concerns\HasColor;
 
 class Shout extends ViewField
 {
-    use HasIcon;
     use HasColor;
-    use HasType;
     use HasContent;
+    use HasIcon;
+    use HasType;
 
     protected string $view = 'shout::components.shout-field';
 
@@ -21,9 +21,10 @@ class Shout extends ViewField
     {
         parent::setUp();
 
-        $this->hiddenLabel();
-        $this->dehydrated(false);
-        $this->type('info');
+        $this
+            ->hiddenLabel()
+            ->dehydrated(false)
+            ->type('info');
     }
 
     public function getColor(): string | array | null

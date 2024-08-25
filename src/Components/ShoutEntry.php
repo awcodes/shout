@@ -10,10 +10,10 @@ use Filament\Support\Concerns\HasColor;
 
 class ShoutEntry extends Entry
 {
+    use HasColor;
+    use HasContent;
     use HasIcon;
     use HasType;
-    use HasContent;
-    use HasColor;
 
     protected string $view = 'shout::components.shout-entry';
 
@@ -21,8 +21,9 @@ class ShoutEntry extends Entry
     {
         parent::setUp();
 
-        $this->hiddenLabel();
-        $this->type('info');
+        $this
+            ->hiddenLabel()
+            ->type('info');
     }
 
     public function getColor(): string | array | null
@@ -45,7 +46,7 @@ class ShoutEntry extends Entry
     {
         $icon = $this->evaluate($this->icon);
 
-        if (! $icon) {
+        if (! $icon && $icon !== '') {
             return match ($this->getType()) {
                 'success' => 'heroicon-o-check-circle',
                 'warning' => 'heroicon-o-exclamation-triangle',
