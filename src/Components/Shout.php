@@ -4,6 +4,7 @@ namespace Awcodes\Shout\Components;
 
 use Awcodes\Shout\Components\Concerns\HasContent;
 use Awcodes\Shout\Components\Concerns\HasIcon;
+use Awcodes\Shout\Components\Concerns\HasTitle;
 use Awcodes\Shout\Components\Concerns\HasType;
 use Filament\Forms\Components\ViewField;
 use Filament\Support\Concerns\HasColor;
@@ -14,6 +15,7 @@ class Shout extends ViewField
     use HasContent;
     use HasIcon;
     use HasType;
+    use HasTitle;
 
     protected string $view = 'shout::components.shout-field';
 

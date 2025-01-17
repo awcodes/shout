@@ -4,6 +4,7 @@
     'icon' => 'heroicon-o-information-circle',
     'iconSize' => 'md',
     'extraAttributes' => [],
+    'title' => '',
 ])
 
 @php
@@ -39,7 +40,12 @@
             </div>
         @endif
         <div class="text-sm font-medium">
-            {{ $slot }}
+            <div>      
+                @if ($title)
+                <h3 class="text-xl font-semibold">{{ $title }}</h3>
+                @endif
+                {{ $slot }}
+            </div>            
         </div>
     </div>
 </div>
