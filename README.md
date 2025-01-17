@@ -38,6 +38,24 @@ ShoutEntry::make('so-important')
     ->type('info|success|warning|danger')
 ```
 
+## Title
+
+You can supply a title via the `title()` method.
+
+```php
+use Awcodes\Shout\Components\Shout;
+use Awcodes\Shout\Components\ShoutEntry;
+
+Shout::make('so-important')
+    ->content('This is a test')
+    ->title('Test Shout')
+
+ShoutEntry::make('so-important')
+    ->content('This is a test')
+    ->title('Test Shout')
+```
+
+
 ## Custom Colors
 
 You can use the `color()` method to set a custom color using Filament's Color Object.
