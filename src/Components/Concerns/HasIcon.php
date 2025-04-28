@@ -3,33 +3,35 @@
 namespace Awcodes\Shout\Components\Concerns;
 
 use Closure;
+use Filament\Support\Enums\IconSize;
+use Filament\Support\Icons\Heroicon;
 
 trait HasIcon
 {
-    protected string | Closure | null $icon = null;
+    protected string | Closure | Heroicon | null $icon = null;
 
-    protected string | Closure | null $iconSize = null;
+    protected string | Closure | IconSize | null $iconSize = null;
 
-    public function icon(string | Closure $icon): static
+    public function icon(string | Closure | Heroicon $icon): static
     {
         $this->icon = $icon;
 
         return $this;
     }
 
-    public function iconSize(string | Closure $size): static
+    public function iconSize(string | Closure | IconSize $size): static
     {
         $this->iconSize = $size;
 
         return $this;
     }
 
-    public function getIcon(): ?string
+    public function getIcon(): string | Heroicon | null
     {
         return $this->evaluate($this->icon);
     }
 
-    public function getIconSize(): ?string
+    public function getIconSize(): string | IconSize | null
     {
         return $this->evaluate($this->iconSize);
     }

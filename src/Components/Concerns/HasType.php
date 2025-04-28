@@ -3,6 +3,7 @@
 namespace Awcodes\Shout\Components\Concerns;
 
 use Closure;
+use InvalidArgumentException;
 
 trait HasType
 {
@@ -13,7 +14,7 @@ trait HasType
         $type = $this->evaluate($this->type) ?? 'info';
 
         if (! in_array($type, ['info', 'success', 'warning', 'danger'])) {
-            throw new \InvalidArgumentException("Invalid Shout type [{$type}].");
+            throw new InvalidArgumentException("Invalid Shout type [{$type}].");
         }
 
         return $type;

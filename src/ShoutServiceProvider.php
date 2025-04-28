@@ -2,8 +2,6 @@
 
 namespace Awcodes\Shout;
 
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -14,14 +12,5 @@ class ShoutServiceProvider extends PackageServiceProvider
         $package->name('shout')
             ->hasAssets()
             ->hasViews();
-    }
-
-    public function boot(): void
-    {
-        parent::boot();
-
-        FilamentAsset::register([
-            Css::make('shout', __DIR__ . '/../resources/dist/shout.css')->loadedOnRequest(),
-        ], 'awcodes/shout');
     }
 }

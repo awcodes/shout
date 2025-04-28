@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
     backupGlobals="false"
-    backupStaticProperties="false"
+    backupStaticAttributes="false"
     bootstrap="vendor/autoload.php"
     colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
     processIsolation="false"
     stopOnFailure="false"
-    cacheDirectory=".phpunit.cache"
+    executionOrder="random"
+    failOnWarning="true"
+    failOnRisky="true"
+    failOnEmptyTestSuite="true"
+    beStrictAboutOutputDuringTests="true"
+    verbose="true"
 >
     <testsuites>
         <testsuite name="Test Suite">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
+    <coverage>
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </coverage>
     <php>
         <env name="APP_ENV" value="self-testing" />
         <env name="APP_KEY" value="base64:4bHj7CIUiEzDxa9oAS3bncF3L5czGQHhyytRB7QAbUs=" />
         <env name="DB_CONNECTION" value="sqlite"/>
         <env name="DB_DATABASE" value=":memory:"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
     </php>
 </phpunit>

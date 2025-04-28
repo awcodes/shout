@@ -5,26 +5,22 @@ namespace Awcodes\Shout\Components;
 use Awcodes\Shout\Components\Concerns\HasContent;
 use Awcodes\Shout\Components\Concerns\HasIcon;
 use Awcodes\Shout\Components\Concerns\HasType;
-use Filament\Forms\Components\ViewField;
+use Filament\Schemas\Components\Component;
 use Filament\Support\Concerns\HasColor;
+use Filament\Support\Icons\Heroicon;
 
-class Shout extends ViewField
+class Shout extends Component
 {
     use HasColor;
     use HasContent;
     use HasIcon;
     use HasType;
 
-    protected string $view = 'shout::components.shout-field';
+    protected string $view = 'shout::components.shout';
 
-    public function setUp(): void
+    public static function make(): static
     {
-        parent::setUp();
-
-        $this
-            ->hiddenLabel()
-            ->dehydrated(false)
-            ->type('info');
+        return app(static::class);
     }
 
     public function getColor(): string | array | null
@@ -43,7 +39,7 @@ class Shout extends ViewField
         return $color;
     }
 
-    public function getIcon(): string
+    public function getIcon(): string | Heroicon | null
     {
         $icon = $this->evaluate($this->icon);
 
