@@ -3,7 +3,6 @@
 namespace Awcodes\Shout\Tests;
 
 use Awcodes\Shout\ShoutServiceProvider;
-use Awcodes\Shout\Tests\Fixtures\AdminPanelProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
@@ -15,20 +14,12 @@ use Filament\Schemas\SchemasServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
-use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    use LazilyRefreshDatabase;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
-
     protected function getPackageProviders($app): array
     {
         return [
@@ -46,14 +37,11 @@ abstract class TestCase extends Orchestra
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
             ShoutServiceProvider::class,
-            AdminPanelProvider::class,
         ];
     }
 
-    public function getEnvironmentSetUp($app): void
+    public function defineEnvironment($app): void
     {
-        $app['config']->set('database.default', 'testing');
-
         $app['config']->set('view.paths', [
             ...$app['config']->get('view.paths'),
             __DIR__ . '/../resources/views',

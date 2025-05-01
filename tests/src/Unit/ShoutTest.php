@@ -1,7 +1,8 @@
 <?php
 
 use Awcodes\Shout\Components\Shout;
-use Awcodes\Shout\Tests\Fixtures\TestForm;
+use Awcodes\Shout\Tests\Fixtures\Livewire;
+use Awcodes\Shout\Tests\TestCase;
 use Filament\Schemas\Schema;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\IconSize;
@@ -9,9 +10,11 @@ use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\HtmlString;
 
+uses(TestCase::class);
+
 beforeEach(function () {
     $this->component = (new Shout)
-        ->container(Schema::make(TestForm::make()));
+        ->container(Schema::make(Livewire::make()));
 });
 
 it('has correct content', function (string | Htmlable | Closure $content) {
