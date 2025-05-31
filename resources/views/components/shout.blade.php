@@ -4,6 +4,7 @@
     'icon' => 'heroicon-o-information-circle',
     'iconSize' => 'md',
     'extraAttributes' => [],
+    'heading' => null,
 ])
 
 @php
@@ -28,9 +29,14 @@
     ]) }}
     style="{{ $panelStyles }}"
 >
-    <div class="flex items-center gap-3">
+    <div class="flex items-start gap-3">
         @if ($icon)
-            <div class="flex-shrink-0">
+            <div
+                @class([
+                  'flex-shrink-0',
+                  'mt-0.5' => $heading,
+                ])
+            >
                 <x-filament::icon
                     alias="shout::icon.{{ $type }}"
                     icon="{{ $icon }}"
@@ -38,8 +44,19 @@
                 />
             </div>
         @endif
-        <div class="text-sm font-medium">
-            {{ $slot }}
+
+        <div class="my-auto">
+            @if ($heading instanceof \Illuminate\Support\HtmlString)
+                {!! $heading !!}
+            @else
+                <h2 class="font-bold">
+                    {{ $heading }}
+                </h2>
+            @endif
+
+            <div class="text-sm font-medium">
+                {{ $slot }}
+            </div>
         </div>
     </div>
 </div>

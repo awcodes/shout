@@ -13,6 +13,7 @@ class TestFieldComponent extends TestForm
             ->statePath('data')
             ->schema([
                 Shout::make('notice')
+                    ->heading('Test Heading')
                     ->content('Some test content'),
             ]);
     }
