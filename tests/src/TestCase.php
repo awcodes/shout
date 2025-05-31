@@ -22,7 +22,7 @@ abstract class TestCase extends Orchestra
 {
     protected function getPackageProviders($app): array
     {
-        return [
+        $providers = [
             ActionsServiceProvider::class,
             BladeCaptureDirectiveServiceProvider::class,
             BladeHeroiconsServiceProvider::class,
@@ -38,6 +38,10 @@ abstract class TestCase extends Orchestra
             WidgetsServiceProvider::class,
             ShoutServiceProvider::class,
         ];
+
+        sort($providers);
+
+        return $providers;
     }
 
     public function defineEnvironment($app): void

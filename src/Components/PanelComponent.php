@@ -14,12 +14,13 @@ class PanelComponent implements HasColor, HasDefaultGrayColor
     public function getColorMap(array $color): array
     {
         return [
-            'fi-bg-color-100',
-            'dark:fi-bg-color-100',
+            'bg' => 100,
+            'dark:bg' => 100,
+            'text' => 900,
+            'dark:text' => 900,
+
             'fi-border-color-300',
             'dark:fi-border-color-300',
-            'fi-text-color-900',
-            'dark:fi-text-color-900',
         ];
     }
 }

@@ -8,6 +8,10 @@
     }
 
     $iconAlias = 'shout::icon.{{ $type }}';
+
+    $panelStyles = \Illuminate\Support\Arr::toCssStyles([
+        Filament\Support\get_color_css_variables($color, shades: [100, 300, 600, 900]) => $color !== 'gray',
+    ]);
 @endphp
 
 <div
@@ -16,10 +20,10 @@
         $attributes
             ->merge($getExtraAttributes())
             ->class([
-                'shout-component border rounded-lg p-4',
+                'shout-component border rounded-lg p-4 bg-custom-100 border-custom-300 text-custom-900 dark:border-custom-300 dark:bg-custom-100 dark:text-custom-900',
             ])
-            ->color(\Awcodes\Shout\Components\PanelComponent::class, $getColor())
     }}
+    style="{{ $panelStyles }}"
 >
     <div class="flex items-center gap-3">
         @if ($icon)
