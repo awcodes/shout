@@ -2,6 +2,7 @@
 
 namespace Awcodes\Shout\Components;
 
+use Awcodes\Shout\Components\Concerns\HasActions;
 use Awcodes\Shout\Components\Concerns\HasContent;
 use Awcodes\Shout\Components\Concerns\HasIcon;
 use Awcodes\Shout\Components\Concerns\HasType;
@@ -11,6 +12,7 @@ use Filament\Support\Concerns\HasHeading;
 
 class Shout extends ViewField
 {
+    use HasActions;
     use HasColor;
     use HasContent;
     use HasHeading;

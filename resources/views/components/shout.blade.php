@@ -5,6 +5,7 @@
     'iconSize' => 'md',
     'extraAttributes' => [],
     'heading' => null,
+    'actions' => null,
 ])
 
 @php
@@ -45,18 +46,30 @@
             </div>
         @endif
 
-        <div class="my-auto">
-            @if ($heading instanceof \Illuminate\Support\HtmlString)
-                {!! $heading !!}
-            @else
-                <h2 class="font-bold">
-                    {{ $heading }}
-                </h2>
-            @endif
+        <div class="flex flex-col flex-1 py-auto gap-3">
+            <div>
+                @if ($heading instanceof \Illuminate\Support\HtmlString)
+                    {!! $heading !!}
+                @else
+                    <h2 class="font-bold">
+                        {{ $heading }}
+                    </h2>
+                @endif
 
-            <div class="text-sm font-medium">
-                {{ $slot }}
+                <div class="text-sm font-medium">
+                    {{ $slot }}
+                </div>
             </div>
+
+            @if($actions)
+                <div class="flex items-center gap-3">
+                    @foreach ($actions as $action)
+                        @if ($action->isVisible())
+                            {{ $action }}
+                        @endif
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 </div>

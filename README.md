@@ -95,6 +95,46 @@ Shout::make('so-important')
     ->content('This is a test')
 ```
 
+## Actions
+
+You can add actions to your shout using the `actions()` method. This accepts an array of Filament Action objects.
+
+### In Forms
+
+```php
+use Awcodes\Shout\Components\Shout;
+use Filament\Forms\Components\Actions\Action;
+
+Shout::make('so-important')
+    ->content('This is a test')
+    ->actions([
+        Action::make('action1')
+            ->label('Action 1')
+            ->url('https://example.com'),
+        Action::make('action2')
+            ->label('Action 2')
+            ->url('https://example.com'),
+    ])
+```
+
+### In Infolists
+
+```php
+use Awcodes\Shout\Components\ShoutEntry;
+use Filament\Infolists\Components\Actions\Action;
+
+ShoutEntry::make('so-important')
+    ->content('This is a test')
+    ->actions([
+        Action::make('action1')
+            ->label('Action 1')
+            ->url('https://example.com'),
+        Action::make('action2')
+            ->label('Action 2')
+            ->url('https://example.com'),
+    ])
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
