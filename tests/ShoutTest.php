@@ -4,6 +4,7 @@ use Awcodes\Shout\Components\Shout;
 use Awcodes\Shout\Tests\Fixtures\TestFieldComponent;
 use Awcodes\Shout\Tests\Fixtures\TestForm;
 use Filament\Forms\ComponentContainer;
+use Filament\Notifications\Notification;
 use Filament\Support\Colors\Color;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\HtmlString;
@@ -93,6 +94,28 @@ it('can disable icon', function () {
 
     expect($field)
         ->getIcon()->toBeEmpty();
+});
+
+it('has correct actions', function () {
+    $actions = [
+        Filament\Forms\Components\Actions\Action::make('test')
+            ->link()
+            ->color('info')
+            ->action(fn () => dd('This is a test')),
+        Filament\Forms\Components\Actions\Action::make('send')
+            ->size('sm')
+            ->action(fn () => Notification::make('test_notification')
+                ->success()
+                ->title('This is a test notification.')
+                ->send()),
+    ];
+
+    $field = (new Shout('notice'))
+        ->container(ComponentContainer::make(TestForm::make()))
+        ->actions($actions);
+
+    expect($field)
+        ->getActions()->toHaveKeys(['test', 'send']);
 });
 
 it('renders correctly', function () {

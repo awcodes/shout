@@ -95,6 +95,28 @@ it('can disable icon', function () {
         ->getIcon()->toBeEmpty();
 });
 
+it('has correct actions', function () {
+    $actions = [
+        Filament\Infolists\Components\Actions\Action::make('test')
+            ->link()
+            ->color('info')
+            ->action(fn () => dd('This is a test')),
+        Filament\Infolists\Components\Actions\Action::make('send')
+            ->size('sm')
+            ->action(fn () => Notification::make('test_notification')
+                ->success()
+                ->title('This is a test notification.')
+                ->send()),
+    ];
+
+    $field = (new ShoutEntry('notice'))
+        ->container(ComponentContainer::make(TestInfolist::make()))
+        ->actions($actions);
+
+    expect($field)
+        ->getActions()->toHaveKeys(['test', 'send']);
+});
+
 it('renders correctly', function () {
     livewire(TestEntryComponent::class)
         ->assertSee('Test Heading')
