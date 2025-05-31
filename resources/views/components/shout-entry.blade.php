@@ -5,6 +5,7 @@
         :icon="$getIcon()"
         :iconSize="$getIconSize()"
         :extra-attributes="$getExtraAttributes()"
+        :heading="$getHeading()"
     >
         {{ $getContent() }}
     </x-shout::shout>

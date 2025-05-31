@@ -7,11 +7,13 @@ use Awcodes\Shout\Components\Concerns\HasIcon;
 use Awcodes\Shout\Components\Concerns\HasType;
 use Filament\Infolists\Components\Entry;
 use Filament\Support\Concerns\HasColor;
+use Filament\Support\Concerns\HasHeading;
 
 class ShoutEntry extends Entry
 {
     use HasColor;
     use HasContent;
+    use HasHeading;
     use HasIcon;
     use HasType;
 

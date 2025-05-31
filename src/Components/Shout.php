@@ -7,11 +7,13 @@ use Awcodes\Shout\Components\Concerns\HasIcon;
 use Awcodes\Shout\Components\Concerns\HasType;
 use Filament\Forms\Components\ViewField;
 use Filament\Support\Concerns\HasColor;
+use Filament\Support\Concerns\HasHeading;
 
 class Shout extends ViewField
 {
     use HasColor;
     use HasContent;
+    use HasHeading;
     use HasIcon;
     use HasType;
 

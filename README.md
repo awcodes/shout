@@ -24,6 +24,7 @@ use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
     ->content('This is a test')
+    ->type('info') // or 'success', 'warning', 'danger'
 ```
 
 ## Usage in Infolists
@@ -35,7 +36,7 @@ use Awcodes\Shout\Components\ShoutEntry;
 
 ShoutEntry::make('so-important')
     ->content('This is a test')
-    ->type('info|success|warning|danger')
+    ->type('info') // or 'success', 'warning', 'danger'
 ```
 
 ## Custom Colors
@@ -47,11 +48,9 @@ use Awcodes\Shout\Components\Shout;
 use Filament\Support\Colors\Color;
 
 Shout::make('so-important')
-    ->content('This is a test')
     ->color(Color::Lime)
 
 Shout::make('so-important')
-    ->content('This is a test')
     ->color(Color::hex('#badA55'))
 ```
 
@@ -63,7 +62,6 @@ Shout::make('so-important')
 use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
-    ->content('This is a test')
     ->icon('heroicon-s-circle-check')
 ```
 
@@ -73,8 +71,7 @@ Shout::make('so-important')
 use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
-    ->content('This is a test')
-    ->iconSize('sm|md|lg|xl')
+    ->iconSize('sm') // or 'md', 'lg', 'xl'
 ```
 
 ### Disabling the icon
@@ -83,8 +80,19 @@ Shout::make('so-important')
 use Awcodes\Shout\Components\Shout;
 
 Shout::make('so-important')
-    ->content('This is a test')
     ->icon(false)
+```
+
+## Headings
+
+You can add a heading to your shout using the `heading()` method. By default , the heading will be a h2 element, but you can override this by using an `HtmlString` object.
+
+```php
+use Awcodes\Shout\Components\Shout;
+
+Shout::make('so-important')
+    ->heading('Important Notice')
+    ->content('This is a test')
 ```
 
 ## Changelog

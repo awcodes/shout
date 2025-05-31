@@ -13,6 +13,7 @@ class TestEntryComponent extends TestInfolist
             ->record(null)
             ->schema([
                 ShoutEntry::make('notice')
+                    ->heading('Test Heading')
                     ->content('Some test content'),
             ]);
     }

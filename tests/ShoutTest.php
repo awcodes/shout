@@ -10,6 +10,19 @@ use Illuminate\Support\HtmlString;
 
 use function Pest\Livewire\livewire;
 
+it('has correct heading', function (string | Htmlable | Closure $content) {
+    $field = (new Shout('notice'))
+        ->container(ComponentContainer::make(TestForm::make()))
+        ->heading($content);
+
+    expect($field)
+        ->getHeading()->toBe($content);
+})->with([
+    'Test content',
+    new HtmlString('<strong><em>Standard Info Shout.</em></strong>'),
+    fn () => 'Test content',
+]);
+
 it('has correct content', function (string | Htmlable | Closure $content) {
     $field = (new Shout('notice'))
         ->container(ComponentContainer::make(TestForm::make()))
@@ -84,6 +97,7 @@ it('can disable icon', function () {
 
 it('renders correctly', function () {
     livewire(TestFieldComponent::class)
+        ->assertSee('Test Heading')
         ->assertSee('Some test content')
         ->assertSee('--info')
         ->assertSee('svg');
