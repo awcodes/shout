@@ -1,3 +1,0 @@
-.shout-component.fi-color {
-    @apply bg-(--bg) border-(--border) text-(--text) dark:bg-(--dark-bg) dark:border-(--dark-border) dark:text-(--dark-text);
-}

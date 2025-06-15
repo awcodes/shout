@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Awcodes\Shout\Tests\Fixtures;
 
 use Filament\Actions\Concerns\InteractsWithActions;

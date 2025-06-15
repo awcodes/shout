@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Awcodes\Shout\Tests;
 
 use Awcodes\Shout\ShoutServiceProvider;
@@ -20,6 +22,14 @@ use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
+    public function defineEnvironment($app): void
+    {
+        $app['config']->set('view.paths', [
+            ...$app['config']->get('view.paths'),
+            __DIR__.'/../resources/views',
+        ]);
+    }
+
     protected function getPackageProviders($app): array
     {
         $providers = [
@@ -42,13 +52,5 @@ abstract class TestCase extends Orchestra
         sort($providers);
 
         return $providers;
-    }
-
-    public function defineEnvironment($app): void
-    {
-        $app['config']->set('view.paths', [
-            ...$app['config']->get('view.paths'),
-            __DIR__ . '/../resources/views',
-        ]);
     }
 }

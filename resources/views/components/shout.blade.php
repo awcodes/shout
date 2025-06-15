@@ -1,5 +1,8 @@
 @php
     use Filament\Support\Enums\IconSize;
+    use Illuminate\Support\Arr;
+    use Illuminate\Support\HtmlString;
+    use function Filament\Support\generate_icon_html;
 
     $iconSize = $getIconSize();
 
@@ -9,9 +12,13 @@
 
     $iconAlias = 'shout::icon.{{ $type }}';
 
-    $panelStyles = \Illuminate\Support\Arr::toCssStyles([
-        Filament\Support\get_color_css_variables($color, shades: [100, 300, 600, 900]) => $color !== 'gray',
+    $panelStyles = Arr::toCssStyles([
+        Filament\Support\get_color_css_variables($getColor(), shades: [100, 300, 600, 900]) => $getColor() !== 'gray',
     ]);
+
+    $actions = $getActions();
+    $heading = $getHeading();
+    $hasInlineActions = $hasInlineActions();
 @endphp
 
 <div
@@ -25,16 +32,53 @@
     }}
     style="{{ $panelStyles }}"
 >
-    <div class="flex items-center gap-3">
+    <div class="flex items-start gap-3">
         @if ($icon)
-            <div class="flex-shrink-0">
-                {{
-                    \Filament\Support\generate_icon_html(icon: $getIcon(), alias: $iconAlias, size: $iconSize ?? IconSize::Small)
-                }}
+            <div
+                @class([
+                  'flex-shrink-0',
+                  'mt-0.5' => $heading,
+                ])
+            >
+                {{ generate_icon_html(icon: $getIcon(), alias: $iconAlias, size: $iconSize ?? IconSize::Small)}}
             </div>
         @endif
-        <div class="text-sm font-medium">
-            {{ $getContent() }}
+
+        <div
+            @class([
+                'flex flex-1 py-auto gap-3',
+                'flex-row items-start' => $hasInlineActions,
+                'flex-col' => ! $hasInlineActions,
+            ])
+        >
+            <div>
+                @if ($heading instanceof HtmlString)
+                    {!! $heading !!}
+                @else
+                    <h2 class="font-bold">
+                        {{ $heading }}
+                    </h2>
+                @endif
+
+                <div class="text-sm font-medium">
+                    {{ $getContent() }}
+                </div>
+            </div>
+
+            @if($actions)
+                <div
+                    @class([
+                        'flex items-center gap-3',
+                        'ml-auto flex-shrink-0' => $hasInlineActions,
+                    ])
+                >
+                    @foreach ($actions as $action)
+                        @if ($action->isVisible())
+                            {{ $action }}
+                        @endif
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 </div>

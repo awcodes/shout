@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Awcodes\Shout;
 
 use Spatie\LaravelPackageTools\Package;
