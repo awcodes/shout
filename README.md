@@ -4,7 +4,7 @@
 
 # Shout
 
-A simple inline contextual notice for Filament forms, basically just a fancy placeholder.
+A simple inline contextual notice for Filament forms and infolist, basically just a fancy placeholder.
 
 ## Compatibility
 
