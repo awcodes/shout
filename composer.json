@@ -35,7 +35,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Awcodes\\Shout\\": "src",
+            "Awcodes\\Shout\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Awcodes\\Shout\\Tests\\": "tests/src"
         }
     },
