@@ -13,10 +13,7 @@ A simple inline contextual notice for Filament forms and infolist, basically jus
 | 1.x             | 2.x              |
 | 2.x             | 3.x              |
 | 3.x             | 4.x              |
-
-## Upgrading from v2 to v3
-
-If you are upgrading from version 2 to version 3, the `ShoutEntry` component is no longer needed and has been removed. You can simply use the `Shout` component directly in infolists.
+| 4.x             | 5.x              |
 
 ## Installation
 

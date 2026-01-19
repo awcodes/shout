@@ -7,7 +7,7 @@ on:
       - opened
       - synchronize
     branches:
-      - 3.x
+      - 4.x
     paths:
       - '**.php'
       - '.github/workflows/tests.yml'
@@ -22,7 +22,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.3, 8.2]
+        php: [8.4, 8.3]
         laravel: [12.*, 11.*]
         stability: [prefer-stable]
         include:
@@ -37,10 +37,10 @@ jobs:
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache Dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.composer/cache/files
           key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
