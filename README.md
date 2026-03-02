@@ -2,10 +2,10 @@
 
 A simple inline contextual notice for Filament forms and infolist, basically just a fancy placeholder.
 
-[![Latest Version](https://img.shields.io/github/release/awcodes/shout.svg?style=flat-square)](https://github.com/awcodes/shout/releases)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
-![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/shout?style=flat-square)
+[![Latest Version](https://img.shields.io/github/release/awcodes/shout.svg?style=flat-square&color=blue&label=Release)](https://github.com/awcodes/shout/releases)
+[![MIT Licensed](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/shout.svg?style=flat-square&color=blue&label=Downloads)](https://packagist.org/packages/awcodes/shout)
+[![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/shout?style=flat-square&color=blue&label=Stars)](https://github.com/awcodes/shout/stargazers)
 
 ## Compatibility
 
