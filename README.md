@@ -1,10 +1,11 @@
-![shout-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/shout/awcodes-shout.jpg)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
-[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
-
 # Shout
 
 A simple inline contextual notice for Filament forms and infolist, basically just a fancy placeholder.
+
+[![Latest Version](https://img.shields.io/github/release/awcodes/shout.svg?style=flat-square)](https://github.com/awcodes/shout/releases)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/shout.svg?style=flat-square)](https://packagist.org/packages/awcodes/shout)
+![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/shout?style=flat-square)
 
 ## Compatibility
 
