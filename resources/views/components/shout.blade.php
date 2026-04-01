@@ -16,7 +16,7 @@
         Filament\Support\get_color_css_variables($getColor(), shades: [100, 300, 600, 900]) => $getColor() !== 'gray',
     ]);
 
-    $actions = $getActions();
+    $actions = collect($getActions())->filter(fn ($action) => $action->isVisible())->all();
     $heading = $getHeading();
     $hasInlineActions = $hasInlineActions();
 @endphp
@@ -47,8 +47,8 @@
         <div
             @class([
                 'flex flex-1 py-auto gap-3',
-                'flex-row items-start' => $hasInlineActions,
-                'flex-col' => ! $hasInlineActions,
+                'flex-row items-start' => filled($actions) && $hasInlineActions,
+                'flex-col' => filled($actions) && ! $hasInlineActions,
             ])
         >
             <div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            @if($actions)
+            @if(filled($actions))
                 <div
                     @class([
                         'flex items-center gap-3',
@@ -73,9 +73,7 @@
                     ])
                 >
                     @foreach ($actions as $action)
-                        @if ($action->isVisible())
-                            {{ $action }}
-                        @endif
+                        {{ $action }}
                     @endforeach
                 </div>
             @endif
