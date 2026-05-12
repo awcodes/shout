@@ -16,6 +16,8 @@ A simple inline contextual notice for Filament forms and infolist, basically jus
 | 3.x             | 4.x              |
 | 4.x             | 5.x              |
 
+<!-- [docs_start] -->
+
 ## Installation
 
 You can install the package via composer:
@@ -124,6 +126,8 @@ Shout::make('so-important')
             ->url('https://example.com'),
     ])
 ```
+
+<!-- [docs_end] -->
 
 ## Changelog
 
