@@ -113,7 +113,7 @@ You can add actions to your shout using the `actions()` method. This accepts an 
 
 ```php
 use Awcodes\Shout\Components\Shout;
-use Filament\Forms\Components\Actions\Action;
+use Filament\Actions\Action;
 
 Shout::make('so-important')
     ->content('This is a test')
