@@ -14,7 +14,7 @@ use Filament\Support\Icons\Heroicon;
 
 class ShoutDemo extends Page
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMegaphone;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedMegaphone;
 
     protected static ?string $title = 'Shout Workbench';
 
