@@ -20,7 +20,7 @@ beforeEach(function () {
         ->container(Schema::make(Livewire::make()));
 });
 
-it('has correct heading', function (string|Htmlable|Closure $content) {
+it('has correct heading', function (string | Htmlable | Closure $content) {
     $this->component->heading($content);
 
     expect($this->component)
@@ -31,7 +31,7 @@ it('has correct heading', function (string|Htmlable|Closure $content) {
     fn () => 'Test content',
 ]);
 
-it('has correct content', function (string|Htmlable|Closure $content) {
+it('has correct content', function (string | Htmlable | Closure $content) {
     $this->component->content($content);
 
     expect($this->component)
@@ -42,7 +42,7 @@ it('has correct content', function (string|Htmlable|Closure $content) {
     fn () => 'Test content',
 ]);
 
-it('has correct type', function (string|Closure $type) {
+it('has correct type', function (string | Closure $type) {
     $this->component->type($type);
 
     expect($this->component)
@@ -53,7 +53,7 @@ it('has correct type', function (string|Closure $type) {
     fn () => 'success',
 ]);
 
-it('has correct custom color', function (string|array|Closure $color) {
+it('has correct custom color', function (string | array | Closure $color) {
     $this->component->color($color);
 
     expect($this->component)
@@ -64,7 +64,7 @@ it('has correct custom color', function (string|array|Closure $color) {
     fn () => Color::Slate['500'],
 ]);
 
-it('has correct icon', function (string|Closure|Heroicon $icon) {
+it('has correct icon', function (string | Closure | Heroicon $icon) {
     $this->component->icon($icon);
 
     expect($this->component)
@@ -75,7 +75,7 @@ it('has correct icon', function (string|Closure|Heroicon $icon) {
     Heroicon::AcademicCap,
 ]);
 
-it('has correct icon size', function (string|Closure|IconSize $icon) {
+it('has correct icon size', function (string | Closure | IconSize $icon) {
     $this->component->iconSize($icon);
 
     expect($this->component)

@@ -8,9 +8,9 @@ use Closure;
 
 trait HasActions
 {
-    protected bool|Closure|null $inlineActions = null;
+    protected bool | Closure | null $inlineActions = null;
 
-    public function actions(array|Closure $actions): static
+    public function actions(array | Closure $actions): static
     {
         $this->actions = $this->evaluate($actions);
         $this->registerActions($this->actions);
@@ -18,7 +18,7 @@ trait HasActions
         return $this;
     }
 
-    public function inlineActions(bool|Closure $position = true): static
+    public function inlineActions(bool | Closure $position = true): static
     {
         $this->inlineActions = $position;
 

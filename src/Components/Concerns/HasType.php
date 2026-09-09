@@ -9,7 +9,7 @@ use InvalidArgumentException;
 
 trait HasType
 {
-    protected string|Closure|null $type = null;
+    protected string | Closure | null $type = null;
 
     public function getType(): string
     {
@@ -22,7 +22,7 @@ trait HasType
         return $type;
     }
 
-    public function type(string|Closure $type): static
+    public function type(string | Closure $type): static
     {
         $this->type = $type;
 

@@ -62,7 +62,7 @@ class Shout extends Component
         return null;
     }
 
-    public function getColor(): string|array|null
+    public function getColor(): string | array | null
     {
         $color = $this->evaluate($this->color);
 
@@ -78,7 +78,7 @@ class Shout extends Component
         return $color;
     }
 
-    public function getIcon(): string|Heroicon|null
+    public function getIcon(): string | Heroicon | null
     {
         $icon = $this->evaluate($this->icon);
 
