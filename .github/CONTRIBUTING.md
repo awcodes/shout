@@ -35,15 +35,55 @@ Before submitting a pull request:
 - Check the codebase to ensure that your feature doesn't already exist.
 - Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
 
+## Development
+
+Install the dependencies:
+
+```bash
+composer install
+```
+
+Start the Workbench application. This builds the Workbench (including its npm assets) and serves it:
+
+```bash
+composer serve
+```
+
+The Workbench is available at `/admin`. Sign in with `test@example.com` and `password` (the login form is pre-filled).
+
+## Testing
+
+Run the full suite (Rector dry run, Pint, PHPStan and Pest):
+
+```bash
+composer test
+```
+
+Or run a single step:
+
+```bash
+composer test:refactor
+composer test:lint
+composer test:types
+composer test:unit
+```
+
+To apply fixes instead of checking:
+
+```bash
+composer lint
+composer refactor
+```
+
 ## Requirements
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](https://pear.php.net/package/PHP_CodeSniffer).
+- **Code style** - The project uses [Laravel Pint](https://laravel.com/docs/pint) and Rector. Run `composer lint` and `composer refactor` before submitting.
 
 - **Add tests!** - Your patch won't be accepted if it doesn't have tests.
 
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+- **Document any change in behaviour** - Make sure the documentation in `docs/` and the `README.md` are kept up-to-date.
 
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org/). Randomly breaking public APIs is not an option.
 
