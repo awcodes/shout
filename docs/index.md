@@ -33,6 +33,9 @@ Every Shout has a type, which sets its colour and its default icon in one call. 
 
 `info` is the default, so a Shout with no type set is a blue informational notice.
 
+![Four Shout notices stacked in a Filament panel: a blue info notice with an information icon, a green success notice with a check icon, an amber warning notice with a triangle icon, and a red danger notice with a cross icon](assets/types-light.png#gh-light-mode-only)
+![Four Shout notices stacked in a Filament panel: a blue info notice with an information icon, a green success notice with a check icon, an amber warning notice with a triangle icon, and a red danger notice with a cross icon](assets/types-dark.png#gh-dark-mode-only)
+
 ## What you can control
 
 Beyond the type, each Shout accepts:
