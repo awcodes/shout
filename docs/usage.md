@@ -53,6 +53,9 @@ Shout::make('so-important')
     ->content('This is a test')
 ```
 
+![Two Shout notices with bold headings: a blue info notice titled Important Notice and an amber warning notice titled Unsaved changes, each with its body text below the heading](assets/headings-light.png#gh-light-mode-only)
+![Two Shout notices with bold headings: a blue info notice titled Important Notice and an amber warning notice titled Unsaved changes, each with its body text below the heading](assets/headings-dark.png#gh-dark-mode-only)
+
 By default the heading is rendered as an `h2`. Pass an `HtmlString` to take over the markup entirely — the string is output as-is, with no wrapping element of Shout's own:
 
 ```php
@@ -83,6 +86,9 @@ Shout::make('so-important')
 | `danger` | `danger` | `heroicon-o-x-circle` |
 
 `info` is used when you do not call `type()` at all.
+
+![Four Shout notices stacked in a Filament panel: a blue info notice with an information icon, a green success notice with a check icon, an amber warning notice with a triangle icon, and a red danger notice with a cross icon](assets/types-light.png#gh-light-mode-only)
+![Four Shout notices stacked in a Filament panel: a blue info notice with an information icon, a green success notice with a check icon, an amber warning notice with a triangle icon, and a red danger notice with a cross icon](assets/types-dark.png#gh-dark-mode-only)
 
 A closure works here too, so the type can depend on state:
 
@@ -115,6 +121,9 @@ Shout::make('so-important')
     ->content('This is a test')
     ->color(Color::hex('#badA55'))
 ```
+
+![Two Shout notices with custom colours: one in Filament's lime palette and one in a muted green generated from the hex value #badA55](assets/colors-light.png#gh-light-mode-only)
+![Two Shout notices with custom colours: one in Filament's lime palette and one in a muted green generated from the hex value #badA55](assets/colors-dark.png#gh-dark-mode-only)
 
 Setting a colour does not change the icon. A `warning` Shout given a lime colour keeps its warning triangle — call `icon()` too if you want both to change.
 
@@ -172,6 +181,9 @@ Shout::make('so-important')
     ->icon(false)
 ```
 
+![Three blue Shout notices: one with a solid academic cap icon, one with an extra-large information icon, and one with no icon at all](assets/icons-light.png#gh-light-mode-only)
+![Three blue Shout notices: one with a solid academic cap icon, one with an extra-large information icon, and one with no icon at all](assets/icons-dark.png#gh-dark-mode-only)
+
 ## Actions
 
 `actions()` accepts an array of Filament actions, rendered below the content:
@@ -211,3 +223,6 @@ Shout::make('so-important')
 ```
 
 This suits a single short action next to a one-line message. Longer content, or more than one or two actions, reads better stacked.
+
+![Two Shout notices with actions: a blue notice with Upgrade now and View changelog buttons stacked below its text, and a green notice with a Dismiss button inline on the right of its text](assets/actions-light.png#gh-light-mode-only)
+![Two Shout notices with actions: a blue notice with Upgrade now and View changelog buttons stacked below its text, and a green notice with a Dismiss button inline on the right of its text](assets/actions-dark.png#gh-dark-mode-only)
