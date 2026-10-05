@@ -53,13 +53,14 @@ return ScreenshotSuite::make()
             ->padding(16),
 
         // The share-image source, shaped to the card templates' screenshot slots. The two-up templates show it
-        // dark in slot 1 and light in slot 2, so it is captured in both themes.
+        // light in slot 2, the large screenshot at the back, and dark in slot 1, the smaller one in front at the
+        // lower left, so it is captured in both themes.
         Screenshot::make('card-page')
             ->viewportSize(...$cardPage)
             ->visit('/admin/shout-demo')
             ->viewport(),
     ])
-    ->cardTemplates('https://github.com/awcodes/focus-templates/tree/v1.1.1/dist')
+    ->cardTemplates('https://github.com/awcodes/focus-templates/tree/v2.0.0/dist')
     ->cards([
         // Open Graph and the GitHub social preview share one 2400x1260 template; GitHub crops 30px top and bottom.
         Card::make('social')
