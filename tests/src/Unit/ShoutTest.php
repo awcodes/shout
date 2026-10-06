@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Filament\Schemas\Schema;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\IconSize;
+use Filament\Support\Facades\FilamentIcon;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\HtmlString;
@@ -111,4 +112,23 @@ it('has correct actions', function () {
 
     expect($this->component)
         ->getActions()->toHaveKeys(['test', 'send']);
+});
+
+it('uses a registered icon alias for its type', function () {
+    FilamentIcon::register([
+        'shout::icon.warning' => new HtmlString('<svg data-icon="aliased-warning"></svg>'),
+    ]);
+
+    $this->component->type('warning');
+
+    expect($this->component->toHtml())
+        ->toContain('data-icon="aliased-warning"');
+});
+
+it('does not render an icon wrapper or empty heading when they are absent', function () {
+    $this->component->icon(false)->content('Some test content');
+
+    expect($this->component->toHtml())
+        ->not->toContain('flex-shrink-0')
+        ->not->toContain('<h2');
 });
