@@ -23,8 +23,7 @@ class ShoutDemo extends Page
     public function content(Schema $schema): Schema
     {
         // Each group is one documentation screenshot, framed by its data-focus hook. The text is fixed, so the
-        // screenshots are the same on every build. The notice keeps its light colours in dark mode while actions
-        // follow the panel theme, so the actions use solid buttons in the notice's own colour to read in both.
+        // screenshots are the same on every build.
         return $schema
             ->components([
                 Group::make([
