@@ -22,7 +22,6 @@
 /.idea              export-ignore
 /images             export-ignore
 /.prettierrc        export-ignore
-/.package-lock.json export-ignore
 /package.json       export-ignore
 /package-lock.json  export-ignore
 /postcss.config.js  export-ignore
